@@ -1,5 +1,6 @@
 {
   "name": "latarnik-wyborczy",
+  "homepage": "https://grepoz.github.io/latarnik-wyborczy",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
