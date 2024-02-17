@@ -1,23 +1,24 @@
 import React from 'react';
 import './styles/App.css';
+import Slider from "./components/Slider";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className={"app-grid"}>
+
+        <header className={"app-header"}>
+          <h3>Latarnik Wyborczy</h3>
+        </header>
+
+        <main className={"app-main"}>
+          <Slider/>
+        </main>
+
+        <footer className={"app-footer"}>
+          © 2023. Wszystkie prawa zastrzeżone.
+        </footer>
+
+      </div>
   );
 }
 

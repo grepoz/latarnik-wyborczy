@@ -1,0 +1,22 @@
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+}
+
+/* Optional: Center the Carousel */
+.carousel {
+    max-width: 70%; /* Adjust as needed */
+    margin: auto;
+}
+
+.carousel-item-content{
+    margin: 0 auto;
+    padding: 10px;
+    width: 200px;
+    min-height: 300px;
+}
+
+.carousel-item{
+
+}
