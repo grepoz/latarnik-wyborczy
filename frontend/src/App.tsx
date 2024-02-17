@@ -1,25 +1,39 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './styles/App.css';
-import Slider from "./components/Slider";
+import {useLocation} from 'react-router-dom';
+import CustomNavbar from "./components/CustomNavbar";
+import CustomRouter from "./components/CustomRouter";
+import ApplicationRoutes from "./models/enums/ApplicationRoutes";
+
+// TODO jak ktoś poda z palca to też ma przenosić
 
 function App() {
-  return (
-      <div className={"app-grid"}>
 
-        <header className={"app-header"}>
-          <h3>Latarnik Wyborczy</h3>
-        </header>
+    const [currentRoute, setCurrentRoute] = React.useState<string>('');
 
-        <main className={"app-main"}>
-          <Slider/>
-        </main>
 
-        <footer className={"app-footer"}>
-          © 2023. Wszystkie prawa zastrzeżone.
-        </footer>
+    const handleRouteChange = (currentRoute: string) => {
+        setCurrentRoute(currentRoute);
+    }
 
-      </div>
-  );
+    return (
+        <div className={"app-grid"}>
+
+            <header className={"app-header"}>
+                <h3>Latarnik Wyborczy</h3>
+                <CustomNavbar onRouteChange={handleRouteChange}/>
+            </header>
+
+            <main className={"app-main"}>
+                <CustomRouter routing={currentRoute} />
+            </main>
+
+            <footer className={"app-footer"}>
+                © 2023. Wszystkie prawa zastrzeżone.
+            </footer>
+
+        </div>
+    );
 }
 
 export default App;
