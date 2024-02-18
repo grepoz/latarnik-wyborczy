@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/latarnik-wyborczy/static/css/main.5517ea7b.css",
+    "main.js": "/latarnik-wyborczy/static/js/main.d693f917.js",
+    "index.html": "/latarnik-wyborczy/index.html",
+    "main.5517ea7b.css.map": "/latarnik-wyborczy/static/css/main.5517ea7b.css.map",
+    "main.d693f917.js.map": "/latarnik-wyborczy/static/js/main.d693f917.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5517ea7b.css",
+    "static/js/main.d693f917.js"
+  ]
+}
