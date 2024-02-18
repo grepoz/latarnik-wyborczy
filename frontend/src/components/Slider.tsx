@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Statement} from "../models/Statement";
 import {Carousel} from "react-bootstrap";
 import StatementComponent from "./StatementComponent";
 import '../styles/Carousel.css';
 
-const Slider = () => {
+const Slider: React.FC = () => {
 
     const [statements, setStatements] = useState<Statement[]>([]);
 

@@ -1,31 +1,33 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './styles/App.css';
-import {useLocation} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import CustomNavbar from "./components/CustomNavbar";
-import CustomRouter from "./components/CustomRouter";
 import ApplicationRoutes from "./models/enums/ApplicationRoutes";
+import Slider from "./components/Slider";
+import {PageNotFound} from "./components/PageNotFound";
 
-// TODO jak ktoś poda z palca to też ma przenosić
+const composeRelativePath = (route: string) => `/${route}`;
 
 function App() {
-
-    const [currentRoute, setCurrentRoute] = React.useState<string>('');
-
-
-    const handleRouteChange = (currentRoute: string) => {
-        setCurrentRoute(currentRoute);
-    }
 
     return (
         <div className={"app-grid"}>
 
             <header className={"app-header"}>
                 <h3>Latarnik Wyborczy</h3>
-                <CustomNavbar onRouteChange={handleRouteChange}/>
+                <CustomNavbar/>
             </header>
 
             <main className={"app-main"}>
-                <CustomRouter routing={currentRoute} />
+
+                <Routes>
+                    <Route path={composeRelativePath(ApplicationRoutes.HOME)} element={<Slider/>} />
+                    <Route path={composeRelativePath(ApplicationRoutes.ABOUT)} element={<h3>ABOUT</h3>} />
+                    <Route path={composeRelativePath(ApplicationRoutes.CREATORS)} element={<h3>CREATORS</h3>} />
+                    <Route path={composeRelativePath(ApplicationRoutes.ALGORITHM)} element={<h3>ALGORITHM</h3>} />
+                    <Route path={composeRelativePath(ApplicationRoutes.FAQ)} element={<h3>FAQ</h3>} />
+                    <Route path='*' element={<PageNotFound location={ {pathname: window.location.pathname} }/>} />
+                </Routes>
             </main>
 
             <footer className={"app-footer"}>

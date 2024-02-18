@@ -1,25 +1,14 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import ApplicationRoutes from "../models/enums/ApplicationRoutes";
+const CustomNavbar: React.FC = () => {
 
-type CustomNavbarProps = {
-    onRouteChange: (currentRoute: string) => void;
-}
+    let defaultRouting = process.env.REACT_APP_DEFAULT_ROUTING_PATH || '';
+    if(defaultRouting !== ''){
+        defaultRouting = defaultRouting + '/';
+    }
 
-const CustomNavbar: React.FC<CustomNavbarProps> = ({onRouteChange}) => {
-
-    const updateView = (routing: string) => {
-
-        const enumValues = Object.values(ApplicationRoutes);
-
-        for (const value of enumValues) {
-            if (routing === value) {
-                onRouteChange(value);
-                return;
-            }
-        }
-        onRouteChange(ApplicationRoutes.HOME);
-    };
+    const getNewUrl = (route: string) => window.origin + "/" + defaultRouting + route;
 
     return (
         <>
@@ -29,23 +18,23 @@ const CustomNavbar: React.FC<CustomNavbarProps> = ({onRouteChange}) => {
                     <Navbar.Collapse id="basic-navbar-nav">
 
                         <Nav className="me-auto">
-                            <Nav.Link className="nav-link" onClick={() => updateView(ApplicationRoutes.HOME)}>Test</Nav.Link>
+                            <Nav.Link className="nav-link" href={getNewUrl(ApplicationRoutes.HOME)}>Test</Nav.Link>
                         </Nav>
 
                         <Nav className="me-auto">
-                            <Nav.Link className="nav-link" onClick={() => updateView(ApplicationRoutes.ABOUT)}>O latarniku</Nav.Link>
+                            <Nav.Link className="nav-link" href={getNewUrl(ApplicationRoutes.ABOUT)}>O latarniku</Nav.Link>
                         </Nav>
 
                         <Nav className="me-auto">
-                            <Nav.Link className="nav-link" onClick={() => updateView(ApplicationRoutes.CREATORS)}>Twórcy</Nav.Link>
+                            <Nav.Link className="nav-link" href={getNewUrl(ApplicationRoutes.CREATORS)}>Twórcy</Nav.Link>
                         </Nav>
 
                         <Nav className="me-auto">
-                            <Nav.Link className="nav-link" onClick={() => updateView(ApplicationRoutes.ALGORITHM)}>Algorytm</Nav.Link>
+                            <Nav.Link className="nav-link" href={getNewUrl(ApplicationRoutes.ALGORITHM)}>Algorytm</Nav.Link>
                         </Nav>
 
                         <Nav className="me-auto">
-                            <Nav.Link className="nav-link" onClick={() => updateView(ApplicationRoutes.FAQ)}>Algorytm</Nav.Link>
+                            <Nav.Link className="nav-link" href={getNewUrl(ApplicationRoutes.FAQ)}>Algorytm</Nav.Link>
                         </Nav>
 
                     </Navbar.Collapse>

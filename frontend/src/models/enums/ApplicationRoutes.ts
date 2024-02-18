@@ -1,7 +1,7 @@
 enum ApplicationRoutes {
     HOME = '',
     ALGORITHM = 'algorytm',
-    ABOUT = 'o latarniku',
+    ABOUT = 'o-latarniku',
     CREATORS = 'tworcy',
     FAQ = 'faq',
 }
