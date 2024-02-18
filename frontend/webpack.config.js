@@ -5,10 +5,9 @@ module.exports = {
   entry: `${__dirname}/src/index.tsx`,
   output: {
     path: `${__dirname}/build`,
-    publicPath: '/',
+    publicPath: '/build/',
     filename: 'bundle.js',
   },
-
 
   // // generate different source maps for dev and production
   // devtool: process.argv.indexOf('-p') === -1 ? 'eval-source-map' : 'source-map',
@@ -93,11 +92,12 @@ module.exports = {
   // and test spa-github-pages redirect in dev
   devServer: {
     historyApiFallback: {
+      publicPath: '/build/',
+      index: 'public/index.html',
       rewrites: [{ from: /\//, to: '/404.html' }],
     },
-    static: `${__dirname}`,
+    static: __dirname + '/public/',
     host: '0.0.0.0',
-    port: 8080,
-    server: process.env.REACT_APP_DEFAULT_ROUTING_PATH
+    port: 8080
   },
 };
