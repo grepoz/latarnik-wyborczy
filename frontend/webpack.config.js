@@ -1,4 +1,3 @@
-// const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -59,34 +58,6 @@ module.exports = {
 
   mode: 'development',
 
-  // optimization: {
-  //   minimizer: [new UglifyJsPlugin({
-  //     uglifyOptions: {
-  //       mangle: true,
-  //       output: {
-  //         comments: false
-  //       }
-  //     }
-  //   })]
-  // },
-
-  // // required because the defaults for webpack -p don't remove multiline comments
-  // optimization:
-  //   process.argv.indexOf('-p') === -1
-  //     ? {}
-  //     : {
-  //         minimize: true,
-  //         minimizer: [
-  //           new TerserPlugin({
-  //             terserOptions: {
-  //               output: {
-  //                 comments: false,
-  //               },
-  //             },
-  //             extractComments: false,
-  //           }),
-  //         ],
-  //       },
 
   // to mimic GitHub Pages serving 404.html for all paths
   // and test spa-github-pages redirect in dev

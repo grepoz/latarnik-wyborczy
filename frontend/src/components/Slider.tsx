@@ -11,10 +11,8 @@ const Slider: React.FC = () => {
     useEffect(() => {
         const fetchStatements = async () => {
             try {
-                // const response = await fetch('http://localhost:3000/questions');
-                // const statements = await response.json();
-                // setStatements(statements || []);
 
+                // TODO: get proper from pawel
                 const exampleStatements: Statement[] = [
                     {
                         id: 1,
